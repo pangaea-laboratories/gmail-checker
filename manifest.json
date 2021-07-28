@@ -2,12 +2,9 @@
   "name": "Gmail Checker",
   "action": {},
   "manifest_version": 3,
-  "version": "0.1",
+  "version": "0.2",
   "description": "Pangaea Laboratories email checker",
-  "permissions": [
-    "activeTab",
-    "scripting"
-  ],
+  "permissions": [],
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/*"],
