@@ -13,7 +13,14 @@ function htmlEntities(str) {
 }
 
 function listSubject(emailForm) {
-    return htmlEntities(emailForm.parentNode.querySelectorAll('input[name=subject]')[0].value);
+    let subject = htmlEntities(emailForm.parentNode.querySelectorAll('input[name=subject]')[0].value);
+    // Not refreshing.... on first click
+    console.log(subject);
+    return `
+        <font color="${subject ? '#00f' : '#f00'}">
+            ${subject ? subject : 'No subject'}
+        </font>
+    `
 }
 
 function listEmailAddesses(emailForm) {
@@ -107,6 +114,7 @@ document.addEventListener('focus', (event) => {
     || target.name == 'cc'
     || target.name == 'bcc'
     || target.name == 'subjectbox'
+    || target.name == 'subject'
     || target.getAttribute('role') == "textbox") {
         setConfirmBeforeSendButtons();
     }
